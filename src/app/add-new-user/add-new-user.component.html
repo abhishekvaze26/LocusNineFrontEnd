@@ -1,0 +1,161 @@
+<form
+  id="addEmployees"
+  #f="ngForm"
+  (ngSubmit)="submitClicked(f)"
+  action="add-user.component.html"
+>
+  <table class="table">
+    <title></title>
+    <tr>
+      <td>Add User</td>
+      <td>
+        <input
+          type="image"
+          src="../../assets/ico_close.svg"
+          alt="Submit"
+          (click)="CloseDialog()"
+        />
+      </td>
+    </tr>
+    <tbody>
+      <tr>
+        <td colspan="2">
+          <input
+            required
+            ngModel
+            name="employeeName"
+            #employeeName="ngModel"
+            id="employeeName"
+            type="text"
+            class="form-control"
+            placeholder="Employee Name"
+          />
+        </td>
+        <div
+          class="alert alert-danger"
+          *ngIf="employeeName.touched && !employeeName.valid"
+        >
+          Employee name is required!
+        </div>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <input
+            required
+            ngModel
+            name="employeeEmail"
+            #employeeEmail="ngModel"
+            id="employeeEmail"
+            type="email"
+            class="form-control"
+            placeholder="Employee Email"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+          />
+        </td>
+        <div
+          class="alert alert-danger"
+          *ngIf="employeeEmail.touched && !employeeEmail.valid"
+        >
+          Employee Email is required!
+        </div>
+      </tr>
+      <tr>
+        <td>
+          <label class="radio-inline"
+            ><input
+              required
+              ngModel
+              name="employeeRole"
+              #employeeRole="ngModel"
+              id="employeeRole"
+              type="radio"
+              value="Admin"
+            />Admin</label
+          >
+        </td>
+        <td>
+          <label class="radio-inline"
+            ><input
+              required
+              ngModel
+              name="employeeRole"
+              #employeeRole="ngModel"
+              id="employeeRole"
+              type="radio"
+              value="Customer Executive"
+            />Customer Executive</label
+          >
+        </td>
+        <div
+          class="alert alert-danger"
+          *ngIf="employeeRole.touched && !employeeRole.valid"
+        >
+          Employee Role is required!
+        </div>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <input
+            ngModel
+            name="employeeMobile"
+            #employeeMobile="ngModel"
+            id="employeeMobile"
+            type="number"
+            class="form-control"
+            placeholder="Employee Mobile (Optional)"
+            pattern="^((\\+91-?)|0)?[0-9]{10}$"
+          />
+        </td>
+        <div
+          class="alert alert-danger"
+          *ngIf="employeeMobile.touched && !employeeMobile.valid"
+        >
+          Employee is invalid!
+        </div>
+      </tr>
+      <tr>
+        <td colspan="2" style="width: 100px">
+          <button type="submit" class="btn btn-warning" [disabled]="!f.valid">
+            Add User
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</form>
+
+<!-- <div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Add or Edit Employee</h5>
+
+    <form id="insertEmployeeForm" #f="ngForm" (ngSubmit)="submitClicked(f)" action="user-dashboard.component.html">
+      <div class="form-group">
+        <div class="form-row">
+          <div class="col">
+            <input required ngModel name="employeeName" #employeeName="ngModel" id="employeeName" type="text" class="form-control" placeholder="Employee Name">
+            <div class="alert alert-danger" *ngIf="employeeName.touched && !employeeName.valid">Employee name is required!</div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col">
+            <input required ngModel name="employeeEmail" #employeeEmail="ngModel" id="employeeEmail" type="text" class="form-control" placeholder="employee Email">
+            <div class="alert alert-danger" *ngIf="employeeEmail.touched && !employeeEmail.valid">employee Email is required!</div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col">
+            <label class="radio-inline"><input type="radio" name="optradio">Option 1</label>
+          </div>
+          <div class="col">
+            <label class="radio-inline"><input type="radio" name="optradio">Option 2</label>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col">
+            <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Add To Inventory</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div> -->

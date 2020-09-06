@@ -1,0 +1,90 @@
+<div class="container">
+  <!--Table to display the inventory-->
+  <form id="displayEmployeeForm" #f1="ngForm" action="app.component.html">
+    <table class="table">
+      <thead>
+        <tr>
+          <td style="padding-right: 450px">
+            <img src="../../assets/ico_users.svg" />Users
+          </td>
+          <td>
+            <input
+              class="form-control mr-sm-2"
+              type="text"
+              placeholder="Search"
+              aria-label="Search"
+            />
+          </td>
+          <td>
+            <button
+              class="btn btn-warning my-2 my-sm-0"
+              type="submit"
+              (click)="AddEmployee(f1)"
+              data-toggle="tooltip"
+              data-placement="top"
+              title="Add new user.By default status of the user is inactive."
+            >
+              + Add User
+            </button>
+          </td>
+        </tr>
+      </thead>
+    </table>
+
+    <div class="form-group" style="overflow: auto; height: 450px">
+      <table class="table">
+        <thead>
+          <tr>
+            <th (click)="sortByName()">
+              <img src="../../assets/ico_sorting.svg" />Name
+            </th>
+            <th>Email</th>
+            <th>Role Type</th>
+            <th>Status</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let e of listOfEmployees">
+            <td>{{ e.EmployeeName }}</td>
+            <td>{{ e.EmployeeEmail }}</td>
+            <td>{{ e.EmployeeRole }}</td>
+            <td>
+              <img
+                *ngIf="e.EmployeeStatus == 'Active'"
+                src="../../assets/ico_active.svg"
+              />
+              <img
+                *ngIf="e.EmployeeStatus == 'Pending'"
+                src="../../assets/ico_pending.svg"
+              />
+              <img
+                *ngIf="e.EmployeeStatus == 'Inactive'"
+                src="../../assets/ico_inactive.svg"
+              />
+
+              &nbsp;{{ e.EmployeeStatus }}
+            </td>
+            <td>
+              <input
+                type="image"
+                src="../../assets/ico_edit.svg"
+                alt="Submit"
+                (click)="EditEmployee(e)"
+              />
+            </td>
+            <td>
+              <input
+                type="image"
+                src="../../assets/ico_close.svg"
+                alt="Submit"
+                (click)="DeleteEmployee(e)"
+              />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </form>
+</div>

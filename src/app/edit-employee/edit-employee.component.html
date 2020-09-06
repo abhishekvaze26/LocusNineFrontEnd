@@ -1,0 +1,101 @@
+<form
+  id="editEmployees"
+  #f="ngForm"
+  (ngSubmit)="editClicked(f)"
+  action="edit-employee.component.html"
+>
+  <table class="table table-borderless">
+    <title></title>
+    <th colspan="3">Edit User Status</th>
+    <tbody>
+      <tr>
+        <td>
+          <label class="radio-inline"
+            ><input
+              required
+              ngModel
+              name="employeeStatus"
+              #adminRadio="ngModel"
+              id="employeeStatus"
+              type="radio"
+              value="Active"
+            />&nbsp;Active</label
+          >
+        </td>
+        <td>
+          <label class="radio-inline"
+            ><input
+              required
+              ngModel
+              name="employeeStatus"
+              #adminRadio="ngModel"
+              id="employeeStatus"
+              type="radio"
+              value="Inactive"
+            />&nbsp;Inactive</label
+          >
+        </td>
+        <td>
+          <label class="radio-inline"
+            ><input
+              required
+              ngModel
+              name="employeeStatus"
+              #adminRadio="ngModel"
+              id="employeeStatus"
+              type="radio"
+              value="Pending"
+            />&nbsp;Pending</label
+          >
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <button
+            type="submit"
+            class="btn btn-warning"
+            style="align-self: center"
+          >
+            Edit Employee
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</form>
+
+<!-- <div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Add or Edit Employee</h5>
+
+    <form id="insertEmployeeForm" #f="ngForm" (ngSubmit)="submitClicked(f)" action="user-dashboard.component.html">
+      <div class="form-group">
+        <div class="form-row">
+          <div class="col">
+            <input required ngModel name="employeeName" #employeeName="ngModel" id="employeeName" type="text" class="form-control" placeholder="Employee Name">
+            <div class="alert alert-danger" *ngIf="employeeName.touched && !employeeName.valid">Employee name is required!</div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col">
+            <input required ngModel name="employeeEmail" #employeeEmail="ngModel" id="employeeEmail" type="text" class="form-control" placeholder="employee Email">
+            <div class="alert alert-danger" *ngIf="employeeEmail.touched && !employeeEmail.valid">employee Email is required!</div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col">
+            <label class="radio-inline"><input type="radio" name="optradio">Option 1</label>
+          </div>
+          <div class="col">
+            <label class="radio-inline"><input type="radio" name="optradio">Option 2</label>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col">
+            <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Add To Inventory</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div> -->
